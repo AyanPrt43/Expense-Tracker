@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="./output.css">
+</head>
+
+<body class="bg-gray-50 dark:bg-gray-950 transition-colors duration-300">
+    
+    <div class="parent flex items-center min-h-dvh w-full flex-col bg-gray-50 dark:bg-gray-950">
+
+        <!--Nav Bar Section-->
+        <section class="NavBar flex justify-center h-[80px] w-[80%]">
+            <nav class="Header bg-white dark:bg-gray-800 dark:text-white flex justify-between items-center w-full rounded-xl shadow-md transition-colors duration-300">
+
+                <div class="img flex items-center justify-center ml-6">
+                    <img src="icons/1.png" alt="" class="h-[55px] w-[63px] cursor-pointer inline">
+                    <p class="font-bold text-xl text-gray-900 dark:text-white">Expense Tracker</p>
+                </div>
+
+                <div class="DarkMode inline mr-8 items-center justify-center">
+                    <img src="icons/2.png" alt="" class="ThemeToggle h-[55px] w-[63px] cursor-pointer">
+                </div>
+
+            </nav>
+        </section>
+
+        <!--Rest of the Section-->
+        <section class="Middle w-[80%] h-full bg-gray-50 dark:bg-gray-950 p-6 transition-colors duration-300">
+
+            <!--Expense, Income, Total Balance-->
+            <div class="Section-1 h-[300px] w-full p-5 flex flex-col rounded-2xl shadow-2xl bg-white dark:bg-gray-800 dark:text-white mb-5 transition-colors duration-300">
+                
+                <!--Total Balance and this Month Div-->
+                <div class="flex justify-between p-2 w-full h-[45%]">
+
+                    <!--Total Balance-->
+                    <div>
+                        <p class="text-gray-800 dark:text-gray-200">Total Balance</p>
+                        <p class="Total_Balance font-bold text-5xl text-gray-900 dark:text-white">0.00</p>
+                    </div>
+                    <!--This Month-->
+                    <div>
+                        <div class="flex items-center gap-3">
+                            <img src="icons/3.png" alt="" class="h-20 w-24 inline">
+                            <p class="text-gray-800 dark:text-gray-200">This Month</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Total Income and Total Expenses Div-->
+                <div class="w-full h-[55%] flex gap-4">
+
+                    <!--Total Income Div-->
+                    <div class="w-[50%] h-full bg-green-50 dark:bg-green-950 border border-green-500 rounded-3xl transition-all duration-300 ease-in-out hover:scale-102 gap-3 flex items-center p-5">
+                        <div>
+                            <img src="icons/4.png" alt="" class="h-20 w-20 inline">
+                        </div>
+
+                        <div>
+                            <p class="text-gray-800 dark:text-gray-200">Total Income</p>
+                            <p id="TotalIncome" class="text-green-600 dark:text-green-400 font-bold text-2xl">0.00</p>
+                        </div>
+                    </div>
+
+                    <!--Total Expenses Div-->
+                    <div class="w-[50%] h-full bg-red-100 dark:bg-red-950 border border-red-500 rounded-3xl transition-all duration-300 ease-in-out hover:scale-102 gap-3 flex items-center p-5">
+
+                        <div>
+                            <img src="icons/5.png" alt="" class="h-18 w-22 inline">
+                        </div>
+
+                        <div>
+                            <p class="text-gray-800 dark:text-gray-200">Total Expense</p>
+                            <p id="TotalExpense" class="text-red-600 dark:text-red-400 font-bold text-2xl">0.00</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!--Expense Log Section-->
+            <div class="TransactionBox flex flex-col p-5 rounded-2xl shadow-2xl bg-white dark:bg-gray-800 dark:text-white mb-5 h-100 transition-colors duration-300">
+
+                <!--Recent Transactions Div-->
+
+                <div class="flex flex-col">
+                    <div class="Recent flex justify-between items-center">
+                        <p class="text-gray-900 dark:text-white">Recent Transactions</p>
+                        <button class="ViewAll bg-purple-200 dark:bg-purple-950 text-purple-600 dark:text-purple-300 p-[5px] rounded-xl w-25 cursor-pointer transition-all duration-300 ease-in-out hover:scale-110 border border-purple-500">View All</button>
+                    </div>
+
+                    <div class="ShadowLine h-[1px] w-full bg-gray-300 dark:bg-gray-600 mt-[14px]"></div>
+                </div>
+
+                <div class="Transactions flex-1 overflow-y-auto">
+                    <p class="Empty mt-5 text-gray-700 dark:text-gray-300">No Transactions Yet!!!</p>
+                </div>
+            </div>
+
+            
+            <!--Add New Transaction-->
+            <div class="AddNew p-5 rounded-2xl shadow-2xl bg-white dark:bg-gray-800 dark:text-white mb-5 transition-colors duration-300">
+                <p class="mb-10 text-gray-900 dark:text-white">Add New Transaction</p>
+
+                <div class="w-full flex justify-between gap-4 mb-5">
+                    <input type="text" placeholder="Enter Description..." class="NewDescription w-[50%] h-15 rounded-md border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white px-3 outline-none">
+                    <input type="text" placeholder="Enter Amount..." class="NewAmount w-[50%] h-15 rounded-md border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white px-3 outline-none">
+                </div>
+
+
+                <div class="w-[100%] mb-5 flex gap-4">
+                    <div class="w-[50%] border border-gray-300 dark:border-gray-600 h-15 rounded-md">
+                        <label for="typeof">
+                            <select name="TypeSelect" id="TypeSelect" class="w-full h-full dark:bg-gray-700 dark:text-white outline-none px-2">
+                                <option value="none">Select Type</option>
+                                <option value="salary">Salary</option>
+                                <option value="food">Food</option>
+                                <option value="transport">Transport</option>
+                                <option value="game">Game</option>
+                                <option value="health">HealthCare</option>
+                                <option value="grocery">Grocery</option>
+                            </select>
+                        </label>
+                    </div>
+
+                    <div class="w-[50%] border border-gray-300 dark:border-gray-600 h-15 rounded-md">
+                        <label for="typeof">
+                            <select name="SaleExp" id="SalExp" class="w-full h-full dark:bg-gray-700 dark:text-white outline-none px-2">
+                                <option value="none">Recieved / Spent</option>
+                                <option value="recieved">Recieved</option>
+                                <option value="spent">Spent</option>
+                            </select>
+                        </label>
+                    </div>
+                </div>
+                <button class="AddTransaction border w-full h-10 bg-blue-500 dark:bg-blue-700 text-white rounded-md cursor-pointer transition-all duration-300 ease-in-out hover:scale-101">Add Transaction</button>
+            </div>
+
+
+
+
+        </section>
+        
+    </div>
+
+    <script src="index.js"></script>
+
+</body>
+</html>
